@@ -14,8 +14,8 @@ worksImage3:
   url: "/eventful-order.png"
   alt: "second image of your project."
 platform: Web
-stack: FE - NextJS, TailwindCSS; BE - ExpressJS, MongoDB; Typescript
-website: https://eventful-frontend-production.up.railway.app/
+stack: FE - NextJS, TailwindCSS; BE - ExpressJS, MongoDB, Typescript
+website: https://eventful-client.netlify.app/
 github: https://github.com/swish933/Eventful-frontend
 ---
 
