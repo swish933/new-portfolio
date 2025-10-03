@@ -1,15 +1,16 @@
 ---
+import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
 const pageTitle = "Nomso Ikem";
 ---
 
 <Layout pageTitle={pageTitle}>
 	<div class='gif'>
-		<img width='300' height='259' alt='RaccoonSpaceGif' src='/space.webp' />
+		<Image width='300' height='259' alt='RaccoonSpaceGif' src='/space.webp' />
 	</div>
-	<h1>Nomso Ikem</h1>
+	<h1 class='dev'>Nomso Ikem</h1>
 	<span class='badge'>Digital Craftsman (Software Developer)</span>
-	<h2>About</h2>
+	<h2 class='about'>About</h2>
 	<p>
 		Hello 👋, I'm a Software Developer who loves JavaScript, specializing in
 		building scalable, secure, and performant backend systems using Node.js.
@@ -28,63 +29,63 @@ const pageTitle = "Nomso Ikem";
 	</div>
 	<h2>Skills</h2>
 	<div class='skills center'>
-		<img
+		<Image
 			class='skills__img'
 			width='46'
 			height='46'
 			alt='TypeScript'
 			src='https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg'
 		/>
-		<img
+		<Image
 			class='skills__img'
 			width='46'
 			height='46'
 			alt='Angular'
 			src='https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg'
 		/>
-		<img
+		<Image
 			class='skills__img'
 			width='46'
 			height='46'
 			alt='Angular'
 			src='https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg'
 		/>
-		<img
+		<Image
 			class='skills__img'
 			width='46'
 			height='46'
 			alt='Bootstrap'
 			src='https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg'
 		/>
-		<img
+		<Image
 			class='skills__img'
 			width='46'
 			height='46'
 			alt='CSS'
 			src='https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg'
 		/>
-		<img
+		<Image
 			class='skills__img'
 			width='46'
 			height='46'
 			alt='HTML'
 			src='https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg'
 		/>
-		<img
+		<Image
 			class='skills__img'
 			width='46'
 			height='46'
 			alt='JavaScript'
 			src='https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg'
 		/>
-		<img
+		<Image
 			class='skills__img'
 			width='46'
 			height='46'
 			alt='C#'
 			src='https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/csharp/csharp-original.svg'
 		/>
-		<img
+		<Image
 			class='skills__img'
 			width='46'
 			height='46'
