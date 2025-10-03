@@ -26,6 +26,7 @@
 }
 
 html {
+	background-attachment: fixed;
 	background-color: var(--background);
 	background-image: url("/micro_carbon.png");
 	color: var(--text);
@@ -325,7 +326,7 @@ footer {
 /* Theme Icon */
 html.light {
 	background-color: var(--background-light);
-	background-image: url("/public/white_carbon.webp");
+	background-image: url("/white_carbon.webp");
 	color: var(--text-light);
 }
 
