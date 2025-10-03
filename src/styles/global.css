@@ -325,6 +325,7 @@ footer {
 
 /* Theme Icon */
 html.light {
+	background-attachment: fixed;
 	background-color: var(--background-light);
 	background-image: url("/white_carbon.webp");
 	color: var(--text-light);
