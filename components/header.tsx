@@ -9,7 +9,9 @@ import Image from "next/image";
 export function Header() {
 	const [open, setOpen] = useState(false);
 	const path = usePathname();
+
 	useEffect(() => setOpen(false), [path]);
+
 	useEffect(() => {
 		function close(e: KeyboardEvent) {
 			if (e.key === "Escape") setOpen(false);
@@ -17,6 +19,15 @@ export function Header() {
 		document.addEventListener("keydown", close);
 		return () => document.removeEventListener("keydown", close);
 	}, []);
+
+	// Lock page scroll while the panel is open
+	useEffect(() => {
+		document.body.style.overflow = open ? "hidden" : "";
+		return () => {
+			document.body.style.overflow = "";
+		};
+	}, [open]);
+
 	return (
 		<header className='site-header'>
 			<div className='shell header-inner'>
@@ -43,33 +54,47 @@ export function Header() {
 					className='menu-button'
 					aria-expanded={open}
 					aria-controls='mobile-navigation'
-					onClick={() => setOpen(!open)}
+					onClick={() => setOpen(true)}
 				>
-					{open ? "Close" : "Menu"}{" "}
-					<span aria-hidden='true'>{open ? "−" : "+"}</span>
+					Menu <span aria-hidden='true'>+</span>
 				</button>
 			</div>
-			{open && (
-				<nav
-					id='mobile-navigation'
-					className='mobile-nav'
-					aria-label='Mobile navigation'
+
+			<div
+				className='mobile-backdrop'
+				data-open={open}
+				onClick={() => setOpen(false)}
+				aria-hidden='true'
+			/>
+
+			<nav
+				id='mobile-navigation'
+				className='mobile-nav'
+				data-open={open}
+				aria-label='Mobile navigation'
+				aria-hidden={!open}
+			>
+				<button
+					type='button'
+					className='mobile-nav-close'
+					onClick={() => setOpen(false)}
 				>
-					{["Work", "About", "Contact"].map((label) => (
-						<Link
-							key={label}
-							href={`/#${label.toLowerCase()}`}
-							onClick={() => setOpen(false)}
-						>
-							{label}
-							<Arrow direction='right' />
-						</Link>
-					))}
-					<a href={profile.resume} download onClick={() => setOpen(false)}>
-						Download résumé <Arrow direction='down' />
-					</a>
-				</nav>
-			)}
+					Close <span aria-hidden='true'>−</span>
+				</button>
+				{["Work", "About", "Contact"].map((label) => (
+					<Link
+						key={label}
+						href={`/#${label.toLowerCase()}`}
+						onClick={() => setOpen(false)}
+					>
+						{label}
+						<Arrow direction='right' />
+					</Link>
+				))}
+				<a href={profile.resume} download onClick={() => setOpen(false)}>
+					Download résumé <Arrow direction='down' />
+				</a>
+			</nav>
 		</header>
 	);
 }

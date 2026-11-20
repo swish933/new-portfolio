@@ -1,12 +1,13 @@
 @import "tailwindcss";
-@theme {
+@theme inline {
 	--color-paper: #fbf9f5;
 	--color-ink: #161719;
 	--color-cobalt: #1d4ed8;
-	--font-sans: "Inter Variable", sans-serif;
-	--font-serif: "Newsreader Variable", Georgia, serif;
-	--font-mono: "JetBrains Mono Variable", monospace;
+	--font-sans: var(--font-inter), system-ui, sans-serif;
+	--font-serif: var(--font-gambarino), Georgia, serif;
+	--font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
 }
+
 :root {
 	--paper: #fbf9f5;
 	--ink: #161719;
@@ -14,9 +15,10 @@
 	--muted: #595b63;
 	--line: #dedbd3;
 	--subtle: #f1eee7;
-	--serif: "Newsreader Variable", Georgia, serif;
-	--mono: "JetBrains Mono Variable", monospace;
-	--sans: "Inter Variable", sans-serif;
+	--serif: var(--font-gambarino), Georgia, serif;
+	--mono: var(--font-jetbrains-mono), ui-monospace, monospace;
+	--sans: var(--font-inter), system-ui, sans-serif;
+
 	color-scheme: light;
 }
 * {
@@ -198,8 +200,16 @@ button {
 	top: 0;
 	z-index: 50;
 	border-bottom: 1px solid var(--line);
+	/* background and backdrop-filter moved to ::before */
+}
+
+.site-header::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	z-index: -1;
 	background: rgba(251, 249, 245, 0.96);
-	backdrop-filter: blur(12px);
+	backdrop-filter: blur(6px);
 }
 .header-inner {
 	height: 86px;
@@ -244,8 +254,63 @@ button {
 	font: 12px var(--mono);
 }
 .mobile-nav {
-	border-top: 1px solid var(--line);
-	padding: 12px 24px 24px;
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 60;
+	display: flex;
+	flex-direction: column;
+	width: min(85vw, 360px);
+	padding: 1.5rem;
+	background: var(--background, #fff); /* use your own background token */
+	transform: translateX(100%);
+	visibility: hidden; /* keeps closed links out of the tab order */
+	transition:
+		transform 0.3s ease,
+		visibility 0s linear 0.3s;
+}
+.mobile-nav[data-open="true"] {
+	transform: translateX(0);
+	visibility: visible;
+	transition: transform 0.3s ease;
+}
+
+.mobile-backdrop {
+	position: fixed;
+	inset: 0;
+	z-index: 50;
+	background: rgb(0 0 0 / 0.4);
+	opacity: 0;
+	visibility: hidden;
+	transition:
+		opacity 0.3s ease,
+		visibility 0s linear 0.3s;
+}
+.mobile-backdrop[data-open="true"] {
+	opacity: 1;
+	visibility: visible;
+	transition: opacity 0.3s ease;
+}
+
+.mobile-nav-close {
+	align-self: flex-end;
+	margin-bottom: 1.5rem;
+}
+
+/* Hide the panel on desktop; use your own breakpoint */
+@media (min-width: 768px) {
+	.mobile-nav,
+	.mobile-backdrop {
+		display: none;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.mobile-nav,
+	.mobile-backdrop {
+		transition: none;
+	}
 }
 .mobile-nav a {
 	display: flex;

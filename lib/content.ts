@@ -4,7 +4,7 @@ export const profile = {
 	location: "Lagos, Nigeria",
 	github: "https://github.com/swish933",
 	linkedin: "https://linkedin.com/in/ikemnomso",
-	resume: "/Joseph_Ikem_Resume.pdf",
+	resume: "/Nomso_Ikem_Resume.pdf",
 };
 export type Project = {
 	slug: string;

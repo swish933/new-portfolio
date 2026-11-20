@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
-import "@fontsource-variable/inter";
-import "@fontsource-variable/newsreader";
-import "@fontsource-variable/newsreader/standard-italic.css";
-import "@fontsource-variable/jetbrains-mono";
+import localFont from "next/font/local";
+import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
+
 export const metadata: Metadata = {
 	title: {
 		default: "Nomso Ikem — Full-stack Software Engineer",
@@ -21,13 +20,37 @@ export const metadata: Metadata = {
 	},
 	robots: { index: true, follow: true },
 };
+
+const inter = Inter({
+	subsets: ["latin"],
+	variable: "--font-inter",
+	display: "swap",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+	subsets: ["latin"],
+	variable: "--font-jetbrains-mono",
+	display: "swap",
+});
+
+const gambarino = localFont({
+	src: "./fonts/Gambarino-Regular.woff2",
+	weight: "400",
+	style: "normal",
+	variable: "--font-gambarino",
+	display: "swap",
+});
+
 export default function RootLayout({
 	children,
 }: {
 	children: React.ReactNode;
 }) {
 	return (
-		<html lang='en'>
+		<html
+			lang='en'
+			className={`${inter.variable} ${jetbrainsMono.variable} ${gambarino.variable}`}
+		>
 			<body id='top'>
 				<a href='#main' className='skip-link'>
 					Skip to content
