@@ -26,7 +26,7 @@ export default function Home() {
 								<em>Solid systems.</em>
 							</h1>
 							<p>
-								I’m Joseph, a full-stack engineer. I build websites and
+								I’m Nomso, a full-stack engineer. I build websites and
 								applications with React, Next.js and Node.js, including the
 								APIs, authentication and background processes behind them.
 							</p>
@@ -229,7 +229,7 @@ export default function Home() {
 							<em>Builder by instinct.</em>
 						</h2>
 						<p className='about-intro'>
-							I’m Joseph Ikem, a full-stack software engineer based in Lagos. My
+							I’m Nomso Ikem, a full-stack software engineer based in Lagos. My
 							work spans client websites, business applications, authentication,
 							APIs and background processing.
 						</p>

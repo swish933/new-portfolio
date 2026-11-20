@@ -8,13 +8,13 @@ import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 export const metadata: Metadata = {
 	title: {
-		default: "Joseph Ikem — Full-stack Software Engineer",
-		template: "%s | Joseph Ikem",
+		default: "Nomso Ikem — Full-stack Software Engineer",
+		template: "%s | Nomso Ikem",
 	},
 	description:
-		"Joseph Ikem is a full-stack software engineer in Lagos, Nigeria, building thoughtful interfaces and solid systems with React, Next.js and Node.js.",
+		"Nomso Ikem is a full-stack software engineer in Lagos, Nigeria, building thoughtful interfaces and solid systems with React, Next.js and Node.js.",
 	openGraph: {
-		title: "Joseph Ikem — Full-stack Software Engineer",
+		title: "Nomso Ikem — Full-stack Software Engineer",
 		description:
 			"Selected applications, client websites, and the engineering behind them.",
 		type: "website",
