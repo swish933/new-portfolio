@@ -7,7 +7,7 @@ export function Footer() {
 			<div className='shell footer-top'>
 				<div>
 					<Link href='/' className='footer-name'>
-						Joseph Ikem
+						Nomso Ikem
 					</Link>
 					<p>Thoughtful interfaces. Solid systems.</p>
 				</div>
@@ -22,7 +22,7 @@ export function Footer() {
 				</div>
 			</div>
 			<div className='shell footer-bottom'>
-				<span>© {new Date().getFullYear()} Joseph Ikem</span>
+				<span>© {new Date().getFullYear()} Nomso Ikem</span>
 				<span>Lagos, Nigeria · UTC+1</span>
 				<span>Built with care, across the stack.</span>
 			</div>
